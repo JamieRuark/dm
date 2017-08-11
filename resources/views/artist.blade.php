@@ -4,7 +4,7 @@
     <div class="container-fluid" id="red">
         <div class="row">
             <div class="col-xs-5 bg-warning col-xs-offset-1 square">
-                <img src="/storage/images/groovemetal1.jpg">
+                <img src="/images/groovemetal1.jpg">
             </div>
             <div class="col-xs-5 bg-danger square">
                 <ul class="list-group" id="red_ul">

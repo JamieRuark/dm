@@ -2,8 +2,8 @@
 
 <div class="container">
     <button class="btn btn-lg" style="margin-top: 40px; margin-bottom: 15px"><a href="">Add New +</a></button>
-    <button class="btn btn-lg" style="margin-top: 40px; margin-bottom: 15px"><a href="">Solo Artist +</a></button>
-    <button class="btn btn-lg" style="margin-top: 40px; margin-bottom: 15px"><a href="">Band +</a></button>
+    <button class="btn btn-lg" style="margin-top: 40px; margin-bottom: 15px"><a href="/admin/add/soloartist/info">Solo Artist +</a></button>
+    <button class="btn btn-lg" style="margin-top: 40px; margin-bottom: 15px"><a href="/admin/add/band/info">Band +</a></button>
     <br>
     <button class="btn btn-lg" style="margin-bottom: 15px"><a href="">Edit</a></button> <br>
 
