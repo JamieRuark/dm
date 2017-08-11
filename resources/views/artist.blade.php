@@ -8,7 +8,7 @@
             </div>
             <div class="col-xs-5 bg-danger square">
                 <ul class="list-group" id="red_ul">
-                    <li class="list-group-item red-style"><span class="red-list" id="red_active_founded">Founded : </span><span class="red-list" id="red_active_year">1981</span><span class="red-list" id="red_disbanded_existed">Existed </span> : <span class="red-disbanded" id="red_disbanded_start">1981</span> - <span class="red-disbanded" id="red_disbanded_finish">2003</span></li>
+                    <li class="list-group-item red-style" style="display: inline-block"><span class="red-list" id="red_active_founded">Founded : </span><span class="red-list" id="red_active_year">1981</span><span class="red-list" id="red_disbanded_existed">Existed </span> : <span class="red-disbanded" id="red_disbanded_start">1981</span> - <span class="red-disbanded" id="red_disbanded_finish">2003</span></li> <button class="btn btn-md">Add To Favorites</button><span class="glyphicon glyphicon-heart"></span>
                     <li class="list-group-item red-style"><span class="red-list">Country</span> : <span id="red_country">{{$artist->country}}</span></li>
                     <li class="list-group-item red-style"><span class="red-list">Genre</span> : <span id="red_genre">{{ $artist->subgenre->name }}</span></li>
                     <li class="list-group-item red-style"><span class="red-list">Label</span> : <span id="red_label">{{$artist->label}}</span></li>

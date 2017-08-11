@@ -1,18 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <form method="post">
-                    <div class="form-group">
-                        <button class="form-control btn btn-info btn-lg active" style="margin-top: 20px; padding-bottom: 32px">Add +</button> <br>
-                    </div>
 
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -54,5 +43,6 @@
             </tr>
         </table>
     </div>
+
 
 @endsection

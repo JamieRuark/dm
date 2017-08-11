@@ -22,6 +22,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/storage/js/bootstrap.min.js"></script>
+<script src="/storage/123.js"></script>
 
 <script>
     $('#myTabs a').click(function (e) {

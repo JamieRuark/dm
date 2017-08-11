@@ -9,6 +9,7 @@
     <link href="/storage/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link href="/storage/main.css" rel="stylesheet">
+    <link href="/storage/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
     <style>
         #hh {
             /*                background-color: antiquewhite;*/
@@ -63,6 +64,15 @@
                         @endforeach
                     </ul>
                 </li>
+                <li>
+                    <a href="/admin">Admin</a>
+                </li>
+                <li>
+                    <a href="/user/favorites">Favorites</a>
+                </li>
+                <li>
+                    <a href="#">Profile</a>
+                </li>
                 <!--                        <li class="active"><a href="#" style="text-decoration: underline; font-style: italic">about the proJect</a></li>li>-->
             </ul>
 
@@ -94,6 +104,7 @@
                     @else
                         <a class="btn btn-success join-login" href="{{ url('/login') }}">Login</a>
                         <a class="btn btn-warning join-login" href="{{ url('/register') }}">Join</a>
+                        <a class="btn btn-danger join-login" href="{{ url('/logout') }}">Log Out</a>
                     @endif
                 </form>
             @endif
@@ -110,6 +121,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/storage/js/bootstrap.min.js"></script>
+<script src="/storage/bootstrap-editable/js/bootstrap-editable.min.js"></script>
 
 {{--<script>--}}
     {{--$('#myTabs a').click(function (e) {--}}

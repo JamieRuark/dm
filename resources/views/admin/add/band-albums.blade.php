@@ -36,6 +36,20 @@
                 </form>
             </div>
         </div>
+        <table class="table">
+            <tr>
+                <th>Year</th>
+                <th>Album Name</th>
+                <th>Producer</th>
+                <th>Label</th>
+            </tr>
+            <tr>
+                <td>1990</td>
+                <td>Cowboys From Hell</td>
+                <td>Terry Date</td>
+                <td>EastWest<button class="btn btn-xs"><a href="">Remove</a></button></td>
+            </tr>
+        </table>
     </div>
 
 @endsection

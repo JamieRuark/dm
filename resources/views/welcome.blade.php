@@ -56,24 +56,17 @@
                 </li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="" href="" style="font-style: italic; color: grey" >Select the Subgenre <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Traditional Heavy Metal</a></li>
-                        <li><a href="#">Speed Metal</a></li>
-                        <li><a href="#">Thrash Metal</a></li>
-                        <li><a href="#">Death Metal</a></li>
-                        <li><a href="#">Grind</a></li>
-                        <li><a href="#">Black Metal</a></li>
-                        <li><a href="#">Doom Metal</a></li>
-                        <li><a href="#">Glam Metal Metal</a></li>
-                        <li><a href="#">Power Metal</a></li>
-                        <li><a href="#">Folk Metal Metal</a></li>
-                        <li><a href="#">Progressive Metal</a></li>
-                        <li><a href="#">Industrial Metal</a></li>
-                        <li><a href="#">Symphonic Metal</a></li>
-                        <li><a href="http://dm.dev/band">Groove Metal</a></li>
-                        <li><a href="#">Melodic Death Metal</a></li>
-                        <li><a href="#">Metalcore</a></li>
-                        <li><a href="#">Deathcore</a></li>
+
                     </ul>
+                </li>
+                <li>
+                    <a href="/admin">Admin</a>
+                </li>
+                <li>
+                    <a href="/user/favorites">Favorites</a>
+                </li>
+                <li>
+                    <a href="#">Profile</a>
                 </li>
                 <!--                        <li class="active"><a href="#" style="text-decoration: underline; font-style: italic">about the proJect</a></li>li>-->
             </ul>
@@ -106,6 +99,7 @@
                     @else
                         <a class="btn btn-success join-login" href="{{ url('/login') }}">Login</a>
                         <a class="btn btn-warning join-login" href="{{ url('/register') }}">Join</a>
+                        <a class="btn btn-danger join-login" href="{{ url('/logout') }}">Log Out</a>
                     @endif
                 </form>
             @endif

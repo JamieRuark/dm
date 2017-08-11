@@ -8,7 +8,7 @@
             </div>
             <div class="col-xs-5 bg-danger square2">
                 <ul class="list-group" id="red_ul">
-                    <li class="list-group-item red-style"><span class="red-list">Year Of Birth </span> : <span class="red-disbanded" id="red_disbanded_start">{{$subgenre->born}}</span>  <span class="red-disbanded" id="red_disbanded_finish"></span></li>
+                    <li class="list-group-item red-style" style="display: inline-block"><span class="red-list">Year Of Birth </span> : <span class="red-disbanded" id="red_disbanded_start">{{$subgenre->born}}</span>  <span class="red-disbanded" id="red_disbanded_finish"></span></li> <button class="btn btn-md">Add To Favorites</button><span class="glyphicon glyphicon-heart"></span>
                     <li class="list-group-item red-style"><span class="red-list">Country Of Origin</span> : <span id="red_country">{{$subgenre->country_of_origin}}</span></li>
                     {{--@foreach ($subgenre->originators as $originator)--}}
                     {{--<li class="list-group-item red-style"><span class="red-list">Originators</span> : {{ $originator->artist_id }}</li>--}}

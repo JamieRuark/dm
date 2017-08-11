@@ -50,6 +50,10 @@ Route::get('/admin/artists', function () {
     return view('admin.artists');
 });
 
+Route::get('/admin/albums', function () {
+    return view('admin.albums');
+});
+
 
 // ADMIN(ADD BAND)
 
@@ -83,6 +87,20 @@ Route::get('/admin/add/genre/info', function() {
 
 Route::get('/admin/add/genre/key-albums', function() {
     return view('admin.add.genre-key-albums');
+});
+
+// ADMIN (ADD ALBUM)
+
+Route::get('/admin/add/album', function() {
+    return view('admin.add.album');
+});
+
+//
+// USER
+//
+
+Route::get('/user/favorites', function() {
+    return view('user.favorites');
 });
 
 
