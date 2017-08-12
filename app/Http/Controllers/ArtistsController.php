@@ -16,18 +16,13 @@ class ArtistsController extends Controller
             'subgenre', 'video'
         ]);
 
-//        dd($artist->toArray());
-
         $subgenres = Subgenre::where('genre', $artist->subgenre->genre)->get();
-
-
-        return view("artist", [
+        
+        return view("layouts.main.artist", [
             'subgenre' => $artist->subgenre,
             'genre_name' => $artist->subgenre->genre,
             'subgenres' => $subgenres,
             'artist' => $artist
         ]);
     }
-
-
 }

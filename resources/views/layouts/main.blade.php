@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,6 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link href="/main.css" rel="stylesheet">
-    <link href="/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
     <style>
         #hh {
             /*                background-color: antiquewhite;*/
@@ -45,6 +43,9 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: yellow">
                         @if(isset($genre_name))
                             {{ trans('genres.genre_names.' . $genre_name) }}
+
+                        @else
+                            Select the Genre
                         @endif
 
                         <span class="caret"></span></a>
@@ -57,23 +58,32 @@
                         <li><a href="/genre/other">{{ trans('genres.genre_names.other') }}</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="" style="color: yellowgreen">{{$subgenre->name}} <span class="caret"></span></a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="{{ isset($subgenres) ? 'dropdown' : '' }}" href="" style="color: yellowgreen">{{ isset($subgenre) ? $subgenre->name : 'Select the Subgenre '}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        @foreach ($subgenres as $subgenre)
-                            <li><a href="/genre/{{ $genre_name }}/{{ $subgenre->slug }}">{{$subgenre->name}}</a></li>
-                        @endforeach
+                        @if(isset($subgenres))
+                            @foreach ($subgenres as $subgenre)
+                                <li><a href="/genre/{{ $genre_name }}/{{ $subgenre->slug }}">{{$subgenre->name}}</a></li>
+                            @endforeach
+                        @else
+                            <li><a disabled="true">select genre first</a></li>
+                        @endif
                     </ul>
                 </li>
-                <li>
-                    <a href="/admin">Admin</a>
-                </li>
-                <li>
-                    <a href="/user/favorites">Favorites</a>
-                </li>
-                <li>
-                    <a href="#">Profile</a>
-                </li>
-                <!--                        <li class="active"><a href="#" style="text-decoration: underline; font-style: italic">about the proJect</a></li>li>-->
+
+                @if(auth()->check() && auth()->user()->isAdmin())
+                    <li>
+                        <a href="/admin">Admin</a>
+                    </li>
+                @endif
+
+                @if(auth()->check())
+                    <li>
+                        <a href="/user/favorites">Favorites</a>
+                    </li>
+                    <li>
+                        <a href="#">Profile</a>
+                    </li>
+                @endif
             </ul>
 
             <!--                 !!! N A V B A R   S E A R C H !!!-->
@@ -97,18 +107,42 @@
             {{--<input type="button" class="btn btn-warning join-login" data-target="#signupModal" data-toggle="modal" value="Join">--}}
             {{--</form>--}}
 
-            @if (Route::has('login'))
-                <form class="navbar-form navbar-right">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a class="btn btn-success join-login" href="{{ url('/login') }}">Login</a>
-                        <a class="btn btn-warning join-login" href="{{ url('/register') }}">Join</a>
-                        <a class="btn btn-danger join-login" href="{{ url('/logout') }}">Log Out</a>
-                    @endif
-                </form>
-            @endif
+            {{--@if (Route::has('login'))--}}
+            {{--<form class="navbar-form navbar-right">--}}
+            {{--@if (Auth::check())--}}
+            {{--<a href="{{ url('/home') }}">Home</a>--}}
+            {{--@else--}}
+            {{--<a class="btn btn-success join-login" href="{{ url('/login') }}">Login</a>--}}
+            {{--<a class="btn btn-warning join-login" href="{{ url('/register') }}">Join</a>--}}
+            {{--<a class="btn btn-danger join-login" href="{{ url('/logout') }}">Log Out</a>--}}
+            {{--@endif--}}
+            {{--</form>--}}
+            {{--@endif--}}
 
+            @if (Auth::guest())
+                <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a href="{{ route('register') }}">Register</a></li>
+            @else
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            @endif
         </div>
 
     </div>
@@ -121,21 +155,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script src="/bootstrap-editable/js/bootstrap-editable.min.js"></script>
-
-{{--<script>--}}
-    {{--$('#myTabs a').click(function (e) {--}}
-        {{--e.preventDefault()--}}
-        {{--$(this).tab('show')--}}
-    {{--});--}}
-
-    {{--$("#hh").css('visibility', 'hidden');--}}
-
-    {{--$(".clickable-row").click(function($) {--}}
-        {{--window.location = $(this).data("url");--}}
-    {{--});--}}
-
-{{--</script>--}}
 
 </body>
 </html>

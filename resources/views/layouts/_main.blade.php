@@ -9,6 +9,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link href="/main.css" rel="stylesheet">
+    <link href="/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
     <style>
         #hh {
             /*                background-color: antiquewhite;*/
@@ -56,7 +57,7 @@
                         <li><a href="/genre/other">{{ trans('genres.genre_names.other') }}</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="" style="font-style: italic; color: red">Select the Subgenre <span class="caret"></span></a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="" style="color: yellowgreen">{{$subgenre->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         @foreach ($subgenres as $subgenre)
                             <li><a href="/genre/{{ $genre_name }}/{{ $subgenre->slug }}">{{$subgenre->name}}</a></li>
@@ -113,29 +114,28 @@
     </div>
 </nav>
 
-
 @yield('content')
-
 
 @include('layouts.partials.footer')
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/bootstrap-editable/js/bootstrap-editable.min.js"></script>
 
-<script>
-    $('#myTabs a').click(function (e) {
-        e.preventDefault()
-        $(this).tab('show')
-    });
+{{--<script>--}}
+    {{--$('#myTabs a').click(function (e) {--}}
+        {{--e.preventDefault()--}}
+        {{--$(this).tab('show')--}}
+    {{--});--}}
 
-    $("#hh").css('visibility', 'hidden');
+    {{--$("#hh").css('visibility', 'hidden');--}}
 
-    $(".clickable-row").click(function($) {
-        window.location = $(this).data("url");
-    });
+    {{--$(".clickable-row").click(function($) {--}}
+        {{--window.location = $(this).data("url");--}}
+    {{--});--}}
 
-</script>
+{{--</script>--}}
 
 </body>
 </html>
