@@ -51,7 +51,7 @@
                         <li><a href="/genre/hip-hop">HIP-HOP</a></li>
                         <li><a href="/genre/metal">METAL</a></li>
                         <li><a href="/genre/electronic">ELECTRONIC</a></li>
-                        <li><a href="/other-genres">OTHER</a></li>
+                        <li><a href="/genre/other">OTHER</a></li>
                     </ul>
                 </li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="" href="" style="font-style: italic; color: grey" >Select the Subgenre <span class="caret"></span></a>
