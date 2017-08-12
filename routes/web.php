@@ -30,13 +30,24 @@ Route::group([
         return view('admin.main');
     });
 
-    Route::get('/admin/users', function () {
-        return view('admin.users');
-    });
+    Route::get('/admin/users', 'Admin\UsersController@index');
 
-    Route::get('/admin/subgenres', function () {
-        return view('admin.subgenres');
-    });
+    Route::get('/admin/subgenres', 'Admin\SubgenresController@index');
+
+    Route::get('/admin/subgenres/add', [
+        'uses' => 'Admin\SubgenresController@add',
+        'as' => 'admin.subgenre.add'
+    ]);
+
+    Route::get('/admin/subgenres/{id}', [
+        'uses' => 'Admin\SubgenresController@edit',
+        'as' => 'admin.subgenre.edit'
+    ]);
+
+    Route::post('/admin/subgenres', [
+        'uses' => 'Admin\SubgenresController@store',
+        'as' => 'admin.subgenre.store'
+    ]);
 
     Route::get('/admin/artists', function () {
         return view('admin.artists');

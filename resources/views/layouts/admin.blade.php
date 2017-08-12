@@ -63,10 +63,15 @@
 </div>
 
 
-
 <div class="container" style="margin-top: 75px">
-@yield('content')
+    <button class="btn btn-lg"><a href="/admin/users">Users</a></button>
+    <button class="btn btn-lg"><a href="/admin/subgenres">Subgenres</a></button>
+    <button class="btn btn-lg"><a href="/admin/artists">Artists</a></button>
+    <button class="btn btn-lg"><a href="/admin/albums">Albums</a></button>
+</div>
 
+<div class="container" style="margin-top: 30px;margin-bottom: 70px">
+    @yield('content')
 </div>
 
 @include('layouts.partials.footer')

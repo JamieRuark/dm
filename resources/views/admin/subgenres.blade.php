@@ -1,22 +1,8 @@
 @extends('layouts.admin')
 
+@section('content')
 <div class="container">
-    <button class="btn btn-lg" style="margin-top: 40px; margin-bottom: 15px"><a href="">Add New +</a></button>
-    <div class="form-group row">
-        <div class="col-xs-2">
-            <p class=>Please select a genre</p>
-            <select class="form-control input-lg">
-                <option>Pop</option>
-                <option>Rock</option>
-                <option>Metal</option>
-                <option>Hip-Hop</option>
-                <option>Electronic</option>
-                <option>Other</option>
-            </select>
-            <input type="submit" class="btn btn-lg" value="Proceed">
-        </div>
-    </div>
-    {{--<button class="btn btn-lg" style="margin-top: 40px; margin-bottom: 15px"><a href="">Choose The Genre</a></button>--}}
+    <a href="{{ route('admin.subgenre.add') }}" class="btn btn-lg btn-primary" style="margin-top: 40px; margin-bottom: 15px">Add New +</a>
     <br>
 </div>
 
@@ -30,15 +16,27 @@
                     <th>Born</th>
                     <th>Country</th>
                     <th>Popularity</th>
+                    <th></th>
                 </tr>
-                <tr>
-                    <td>Groove Metal</td>
-                    <td>Metal</td>
-                    <td>2003</td>
-                    <td>USA</td>
-                    <td>Very Popular<button class="btn btn-xs"><a href="">Edit</a></button></td>
-                </tr>
+
+                @foreach($subgenres as $subgenre)
+                    <tr>
+                        <td>{{ $subgenre->name }}</td>
+                        <td>{{ trans('genres.genre_names.'. $subgenre->genre) }}</td>
+                        <td>{{ $subgenre->born }}</td>
+                        <td>{{ trans('general.countries.' . $subgenre->country_of_origin) }}</td>
+                        <td>{{ trans('genres.popularity.' . $subgenre->popularity) }}</td>
+                        <td><button class="btn btn-xs"><a href="{{ route('admin.subgenre.edit', ['id' => $subgenre->id]) }}">Edit</a></button></td>
+                    </tr>
+                @endforeach
             </table>
         </div>
     </div>
 </div>
+
+<div>
+    <div class="container">
+        {{ $subgenres->links() }}
+    </div>
+</div>
+@endsection

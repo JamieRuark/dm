@@ -6,6 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subgenre extends Model
 {
+    protected $table = 'subgenres';
+
+    protected $fillable = [
+        'name',
+        'genre',
+        'born',
+        'country_of_origin',
+        'history',
+        'popularity',
+        'slug'
+    ];
+
+    public $timestamps = false;
+
+
     public function key_albums()
     {
         return $this->belongsToMany(Album::class, 'subgenre_key_albums');

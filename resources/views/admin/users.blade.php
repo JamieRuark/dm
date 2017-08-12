@@ -1,29 +1,32 @@
 @extends('layouts.admin')
 
+@section('content')
 <div class="container" style="margin-top: 140px">
     <div class="row">
         <div class="col-sm-12">
             <table class="table">
+
                 <tr>
                     <th>Username</th>
                     <th>Role</th>
                     <th>Email</th>
                     <th>Joined</th>
                 </tr>
+                @foreach($users as $user)
                 <tr>
-                    <td>Max</td>
-                    <td>Admin</td>
-                    <td>maxfaden0764.gmail.com</td>
-                    <td>2017-08-08 21:51:28</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->role }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->created_at->toDateTimeString() }}</td>
                 </tr>
-                <tr>
-                    <td>Mike</td>
-                    <td>User</td>
-                    <td>123r.gmail.com</td>
-                    <td>2017-08-08 21:31:28</td>
-                </tr>
+                @endforeach
             </table>
         </div>
     </div>
 </div>
 
+<div class="container">
+    {{ $users->links() }}
+</div>
+
+@endsection
