@@ -152,9 +152,11 @@
 
 @include('layouts.partials.footer')
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="/js/app.js"></script>
+<script src="/js/vue-resource.min.js"></script>
 
 </body>
 </html>

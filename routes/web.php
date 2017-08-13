@@ -111,4 +111,6 @@ Route::group([
     Route::get('/user/favorites', function() {
         return view('user.favorites');
     });
+
+    Route::post('/favorites/add', 'FavoritesController@add');
 });

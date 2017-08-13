@@ -67,4 +67,12 @@ class Subgenre extends Model implements HasMediaConversions
             ->height(250)
             ->optimize();
     }
+
+    /**
+     * Get all of the post's comments.
+     */
+    public function favorite()
+    {
+        return $this->morphMany(Favorite::class, 'favoritable');
+    }
 }
