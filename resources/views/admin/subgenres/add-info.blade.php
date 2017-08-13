@@ -4,7 +4,7 @@
       <div class="container">
             <div class="row">
                   <div class="col-sm-6">
-                        <form method="post" action="{{ route('admin.subgenre.store') }}">
+                        <form method="post" action="{{ route('admin.subgenre.store') }}" enctype="multipart/form-data">
                               {{ csrf_field() }}
 
                               @if ($errors->any())
@@ -59,7 +59,7 @@
 
                                     <div class="form-group">
                                           <label for="exampleInputFile">Upload a picture</label>
-                                          <input type="file" id="exampleInputFile">
+                                          <input type="file" id="exampleInputFile" name="cover">
                                           <p class="help-block">Upload a picture that represents the genre - jpg or .png formats only</p>
                                     </div>
 

@@ -4,7 +4,12 @@
     <div class="container-fluid" id="red2">
         <div class="row">
             <div class="col-xs-5 bg-warning col-xs-offset-1 square2">
-                <img src="/images/gmgm.jpg">
+                @if($cover)
+                    <img src="{{ $cover->getUrl('thumb') }}">
+                @else
+                    <img src="http://lorempixel.com/400/250/people">
+                @endif
+
             </div>
             <div class="col-xs-5 bg-danger square2">
                 <ul class="list-group" id="red_ul">

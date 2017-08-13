@@ -34,6 +34,8 @@ class SubgenresController extends Controller
 
         $item = Subgenre::create($data);
 
+        $item->addMediaFromRequest('cover')->toMediaCollection('images');
+
         dd($item);
     }
 }

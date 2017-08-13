@@ -21,6 +21,8 @@ class GenreController extends Controller
     {
         $subgenre = Subgenre::where('slug',$subgenre_slug)->first();
 
+        $cover = $subgenre->getFirstMedia('images');
+
         $subgenre->load(['key_albums', 'originators']);
 
 //        foreach ($subgenre->originators as $a) {
@@ -31,6 +33,6 @@ class GenreController extends Controller
 
         $artists = Artist::where('subgenre_id', $subgenre->id)->get();
 
-        return view("layouts.main.subgenre", compact('subgenre', 'subgenres', 'genre_name','artists'));
+        return view('layouts.main.subgenre', compact('subgenre', 'cover', 'subgenres', 'genre_name','artists'));
     }
 }
