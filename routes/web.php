@@ -34,19 +34,26 @@ Route::group([
 
     Route::get('/admin/subgenres', 'Admin\SubgenresController@index');
 
-    Route::get('/admin/subgenres/add', [
-        'uses' => 'Admin\SubgenresController@add',
-        'as' => 'admin.subgenre.add'
-    ]);
-
     Route::get('/admin/subgenres/{id}', [
         'uses' => 'Admin\SubgenresController@edit',
         'as' => 'admin.subgenre.edit'
     ]);
 
+    Route::get('/admin/subgenres/add', [
+        'uses' => 'Admin\SubgenresController@add',
+        'as' => 'admin.subgenre.add'
+    ]);
+
+
+
     Route::post('/admin/subgenres', [
         'uses' => 'Admin\SubgenresController@store',
         'as' => 'admin.subgenre.store'
+    ]);
+
+    Route::post('/admin/subgenres/update/{id}', [
+        'uses' => 'Admin\SubgenresController@update',
+        'as' => 'admin.subgenre.update'
     ]);
 
     Route::get('/admin/artists', function () {

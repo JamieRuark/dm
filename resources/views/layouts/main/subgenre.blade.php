@@ -21,12 +21,12 @@
                     </div>
 
                     <span class="glyphicon glyphicon-heart"></span>
-                    <li class="list-group-item red-style"><span class="red-list">Country Of Origin</span> : <span id="red_country">{{$subgenre->country_of_origin}}</span></li>
+                    <li class="list-group-item red-style"><span class="red-list">Country Of Origin</span> : <span id="red_country">{{ trans('general.countries.' . $subgenre->country_of_origin) }}</span></li>
                     {{--@foreach ($subgenre->originators as $originator)--}}
                     {{--<li class="list-group-item red-style"><span class="red-list">Originators</span> : {{ $originator->artist_id }}</li>--}}
                     {{--@endforeach--}}
-                    <li class="list-group-item red-style"><span class="red-list">Predecessors</span> : <span id="red_label">Metallica, Slayer, White Zombie</span></li>
-                    <li class="list-group-item red-style"><span class="red-list">Popularity</span> : <span id="red_popularity">{{$subgenre->popularity}}</span></li>
+                    {{--<li class="list-group-item red-style"><span class="red-list">Predecessors</span> : <span id="red_label">Metallica, Slayer, White Zombie</span></li>--}}
+                    <li class="list-group-item red-style"><span class="red-list">Popularity</span> : <span id="red_popularity">{{ trans('genres.popularity.' . $subgenre->popularity) }}</span></li>
                 </ul>
             </div>
         </div>

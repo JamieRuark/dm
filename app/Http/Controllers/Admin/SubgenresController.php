@@ -23,7 +23,9 @@ class SubgenresController extends Controller
 
     public function edit(int $id)
     {
-        //todo
+        $subgenre = Subgenre::findOrFail($id);
+
+        return view('admin.subgenres.update-info', compact('subgenre'));
     }
 
     public function store(StoreSubgenre $request)
@@ -34,8 +36,37 @@ class SubgenresController extends Controller
 
         $item = Subgenre::create($data);
 
-        $item->addMediaFromRequest('cover')->toMediaCollection('images');
+        if (array_get($data, 'cover')) {
+            $item->addMediaFromRequest('cover')->toMediaCollection('images');
+        }
+
+
 
         dd($item);
+    }
+
+    public function update($id, StoreSubgenre $request)
+    {
+        /** @var Subgenre $item */
+        $item = Subgenre::findOrFail($id);
+
+        $data = $request->all();
+
+        $updated = $item->update($data);
+
+
+
+        if (array_get($data, 'cover')) {
+//            if ($item->hasMedia('images')) {
+//                $item->deleteMedia()
+//            }
+//            $item->addMediaFromRequest('cover')->toMediaCollection('images');
+
+//            $item->updateMedia([$data['cover']], 'images');
+
+            //todo update media
+        }
+
+        dd('update', $item);
     }
 }
